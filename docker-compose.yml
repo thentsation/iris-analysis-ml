@@ -1,0 +1,6 @@
+services:
+  iris-analysis:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: iris-analysis-ml

@@ -1,2 +1,9 @@
 .ipynb_checkpoints
 .venv
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+.env
+.idea
+.vscode

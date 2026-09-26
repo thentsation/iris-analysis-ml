@@ -1,5 +1,5 @@
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
+pandas>=2.3,<2.4
+numpy>=2.3,<3.0
+matplotlib>=3.10,<3.11
+seaborn>=0.13,<0.14
+scikit-learn>=1.9,<1.10
