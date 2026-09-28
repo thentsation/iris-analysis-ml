@@ -12,6 +12,10 @@ updates:
     labels:
       - dependencies
       - python
+    ignore:
+      # numpy 2.5+ requires Python >=3.12; CI still tests 3.11.
+      - dependency-name: "numpy"
+        versions: [">=2.5"]
 
   - package-ecosystem: docker
     directory: /docker
