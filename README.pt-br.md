@@ -1,8 +1,5 @@
 # Iris Dataset Analysis
 
-[![Python CI](https://github.com/thentsation/iris-analysis-ml/actions/workflows/pipeline_python.yaml/badge.svg)](https://github.com/thentsation/iris-analysis-ml/actions/workflows/pipeline_python.yaml)
-[![Docker CI/CD](https://github.com/thentsation/iris-analysis-ml/actions/workflows/pipeline_docker.yaml/badge.svg)](https://github.com/thentsation/iris-analysis-ml/actions/workflows/pipeline_docker.yaml)
-
 > Read in [English](README.md).
 
 Análise exploratória e classificação (Random Forest, SVM, KNN) no dataset Iris. A exploração original vive em [`notebooks/irisML.ipynb`](notebooks/irisML.ipynb); a mesma lógica também foi extraída para um pacote `src/` testado.
@@ -46,4 +43,8 @@ make format       # ruff format
 make typecheck    # mypy
 ```
 
-O CI roda ruff, pytest (com piso de cobertura), mypy e pip-audit em todo push/PR, além de uma execução diária agendada. Imagens Docker são construídas, escaneadas com Trivy e publicadas no GHCR na `main`. O Dependabot mantém pip, imagem base do Docker e GitHub Actions atualizados, com bumps patch/minor mesclados automaticamente. Releases são versionados automaticamente com [python-semantic-release](https://python-semantic-release.readthedocs.io/).
+CI e deploy rodam no Jenkins da plataforma (`Jenkinsfile` → `appPipeline` da Shared Library `platform`, repo devops-platform), disparados por webhooks. Sem GitHub Actions.
+
+- **PRs e branches** — validação do contrato; `docker build --target test` (`ruff check`, `ruff format --check`, `mypy`, `pytest` com cobertura ≥90% em Python 3.11 e 3.12, versões das ferramentas no `config/requirements-dev.txt`); `pip-audit` no `config/requirements.lock`; Trivy (CRITICAL/HIGH) na imagem de runtime.
+- **main** — tudo acima e depois build e uma execução de teste da imagem (o job precisa terminar com exit 0; nada fica no ar), release com o python-semantic-release (versão, CHANGELOG, tag e release no GitHub) e rebuild do portfolio. Também é reconstruída toda segunda para pegar patches de segurança.
+- **Dependências** — Renovate (job `platform/renovate` no Jenkins, `renovate.json` → preset do devops-platform): atualizações diárias, manutenção semanal do lockfile, issue "Dependency Dashboard" e auto-merge de patch/minor depois que o Jenkins aprova.
