@@ -6,13 +6,13 @@ contourpy==1.4.0
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
-fonttools==4.66.0
+fonttools==4.66.1
     # via matplotlib
 joblib==1.6.0
     # via scikit-learn
 kiwisolver==1.5.1
     # via matplotlib
-matplotlib==3.10.9
+matplotlib==3.11.2
     # via
     #   -r config/requirements.txt
     #   seaborn
@@ -29,7 +29,7 @@ numpy==2.5.3
     #   seaborn
 packaging==26.3
     # via matplotlib
-pandas==2.3.3
+pandas==3.0.6
     # via
     #   -r config/requirements.txt
     #   seaborn
@@ -41,8 +41,6 @@ python-dateutil==2.9.0.post0
     # via
     #   matplotlib
     #   pandas
-pytz==2026.4
-    # via pandas
 scikit-learn==1.9.1
     # via -r config/requirements.txt
 scipy==1.18.1
@@ -53,5 +51,5 @@ six==1.17.0
     # via python-dateutil
 threadpoolctl==3.7.0
     # via scikit-learn
-tzdata==2026.4
+tzdata==2026.5 ; sys_platform == 'emscripten' or sys_platform == 'win32'
     # via pandas
