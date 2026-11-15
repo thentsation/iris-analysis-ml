@@ -6,7 +6,7 @@ contourpy==1.4.0
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
-fonttools==4.67.0
+fonttools==4.68.0
     # via matplotlib
 joblib==1.6.0
     # via scikit-learn
@@ -16,7 +16,7 @@ matplotlib==3.11.2
     # via
     #   -r config/requirements.txt
     #   seaborn
-narwhals==2.27.1
+narwhals==2.28.0
     # via scikit-learn
 numpy==2.5.4
     # via
@@ -29,7 +29,7 @@ numpy==2.5.4
     #   seaborn
 packaging==26.3
     # via matplotlib
-pandas==3.1.0
+pandas==3.1.1
     # via
     #   -r config/requirements.txt
     #   seaborn
@@ -37,7 +37,7 @@ pillow==13.0.0
     # via matplotlib
 pyparsing==3.3.3
     # via matplotlib
-python-dateutil==3.0.0
+python-dateutil==4.0.0
     # via
     #   matplotlib
     #   pandas
@@ -47,11 +47,9 @@ scipy==1.18.1
     # via scikit-learn
 seaborn==0.13.2
     # via -r config/requirements.txt
-six==1.17.0
-    # via python-dateutil
-threadpoolctl==3.7.0
+threadpoolctl==3.8.0
     # via scikit-learn
-tzdata==2026.5
+tzdata==2026.6
     # via
     #   pandas
     #   python-dateutil
